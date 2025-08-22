@@ -67,18 +67,18 @@
             transition: 0.3s ease-in-out;
         }
 
-        .thumbnail:nth-child(1) {
+        /* .thumbnail:nth-child(1) {
 
-            transform: translate(-50px, -60px);
+            transform: rotate(180deg) translate(50px) ;
         }
 
         .thumbnail:nth-child(2) {
-            transform: translate(0px);
+            transform: rotate(0deg) translate(0px) ;
         }
 
         .thumbnail:nth-child(3) {
-            transform: translate(-50px, 60px);
-        }
+            transform: rotate(180deg) translate(50px) ;
+        } */
 
 
 
@@ -209,25 +209,26 @@
                     ORDER NOW
                 </button>
             </div>
-            <div class="flex items-center gap-2 md:gap-5 w-[50%] relative">
+            <div class="flex items-center gap-2 md:gap-5 w-[50%] sm:pr-10 px-5 relative">
                 <!-- Main Coffee Cup -->
                 <div
-                    class="relative bg-[url('/assets/images/hero_shape_4_5.png')] bg-contain bg-no-repeat p-3 md:p-8 lg:p-14 flex items-center justify-center bg-center ">
+                    class="relative bg-[url('/assets/images/hero_shape_4_5.png')] bg-contain bg-no-repeat p-3 md:p-8 2xl:p-14  flex items-center justify-center bg-center ">
                     <img src="assets/images/hero_shape_4_1.png" alt="shape " id="leafImage"
                         class="absolute -top-5 max-w-[70px] sm:max-w-[100px] lg:max-w-[192.75px] w-full ease-in-out duration-800  -start-5">
                     <img id="mainCoffee" src="assets/images/hero_img_4_1.png"
                         class="coffee-img w-full 2xl:max-w-[500px] 2xl:h-[500px] h-full object-contain rounded-full shadow-xl relative z-[5] ">
-                </div>
-                <!-- Coffee Thumbnails -->
-                <div class=" flex flex-col sm:gap-10 z-20 
-                 ">
-                    <img src="assets/images/hero_img_4_1.png"
-                        class="thumbnail object-contain w-20 h-20 rounded-full shadow-lg ">
 
-                    <img src="assets/images/hero_img_4_2.png"
-                        class="thumbnail object-contain w-20 h-20 rounded-full shadow-lg  ">
-                    <img src="assets/images/hero_img_4_3.png"
-                        class="thumbnail object-contain w-20 h-20 rounded-full shadow-lg ">
+                    <!-- Coffee Thumbnails -->
+                    <div class=" flex flex-col sm:gap-10 z-20 
+                 ">
+                        <img src="assets/images/hero_img_4_1.png"
+                            class="thumbnail object-contain 2xl:w-20 2xl:h-20 md:h-12 md:w-12 sm:h-8 sm:w-8  w-4 h-4 rounded-full shadow-lg absolute top-[5%] 2xl:-end-[30px]  send-[10px]">
+
+                        <img src="assets/images/hero_img_4_2.png"
+                            class="thumbnail object-contain 2xl:w-20 2xl:h-20 md:h-12 md:w-12 sm:h-8 sm:w-8  w-4 h-4 rounded-full shadow-lg absolute top-[45%]  2xl:-end-[100px] sm:-end-[50px]  -end-[20px]  ">
+                        <img src="assets/images/hero_img_4_3.png"
+                            class="thumbnail object-contain 2xl:w-20 2xl:h-20 md:h-12 md:w-12 sm:h-8 sm:w-8  w-4 h-4 rounded-full shadow-lg absolute bottom-[5%] 2xl:-end-[30px]  send-[10px]">
+                    </div>
                 </div>
             </div>
             <img src="assets/images/hero_shape_4_4.png" alt="leaf"
