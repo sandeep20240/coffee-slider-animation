@@ -153,7 +153,7 @@
             }
         }
 
-/* 
+        /* 
         @media (min-width:767.98px) {
 
             .thumbnail:nth-child(1) {
@@ -305,14 +305,21 @@
 
             // Set start position (thumbnail pos)
             console.log(clone.style)
-            Object.assign(clone.style, {
-                top: rect.top + "px",
-                left: rect.left + "px",
-                width: rect.width + "px",
-                height: rect.height + "px",
-                opacity: 0,
-                // rotate: "90deg"
-            })
+            clone.style.top = rect.top + "px";
+            clone.style.left = rect.left + "px";
+            clone.style.width = rect.width + "px";
+            clone.style.height = rect.height + "px";
+            clone.style.opacity = 0;
+            clone.style.rotate = "90deg";
+
+            // Object.assign(clone.style, {
+            //     top: rect.top + "px",
+            //     left: rect.left + "px",
+            //     width: rect.width + "px",
+            //     height: rect.height + "px",
+            //     opacity: 0,
+            //     // rotate: "90deg"
+            // })
 
 
             // Force browser to recognize initial position
@@ -325,7 +332,7 @@
             clone.style.width = mainRect.width + "px";
             clone.style.height = mainRect.height + "px";
             clone.style.opacity = 1;
-            // clone.style.rotate = "0deg";
+            clone.style.rotate = "0deg";
             // Object.assign(clone.style, {
             //     top: mainRect.top + "px",
             //     left: mainRect.left + "px",
