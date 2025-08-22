@@ -67,18 +67,18 @@
             transition: 0.3s ease-in-out;
         }
 
-        /* .thumbnail:nth-child(1) {
+        .thumbnail:nth-child(1) {
 
-            transform: rotate(180deg) translate(50px) ;
+            transform: translate(-50px, -60px);
         }
 
         .thumbnail:nth-child(2) {
-            transform: rotate(0deg) translate(0px) ;
+            transform: translate(0px);
         }
 
         .thumbnail:nth-child(3) {
-            transform: rotate(180deg) translate(50px) ;
-        } */
+            transform: translate(-50px, 60px);
+        }
 
 
 
@@ -209,7 +209,7 @@
                     ORDER NOW
                 </button>
             </div>
-            <div class="flex items-center gap-2 md:gap-5 w-[50%] ">
+            <div class="flex items-center gap-2 md:gap-5 w-[50%] relative">
                 <!-- Main Coffee Cup -->
                 <div
                     class="relative bg-[url('/assets/images/hero_shape_4_5.png')] bg-contain bg-no-repeat p-3 md:p-8 lg:p-14 flex items-center justify-center bg-center ">
@@ -222,12 +222,12 @@
                 <div class=" flex flex-col sm:gap-10 z-20 
                  ">
                     <img src="assets/images/hero_img_4_1.png"
-                        class="thumbnail object-contain w-20 h-20 rounded-full shadow-lg">
+                        class="thumbnail object-contain w-20 h-20 rounded-full shadow-lg ">
 
                     <img src="assets/images/hero_img_4_2.png"
-                        class="thumbnail object-contain w-20 h-20 rounded-full shadow-lg">
+                        class="thumbnail object-contain w-20 h-20 rounded-full shadow-lg  ">
                     <img src="assets/images/hero_img_4_3.png"
-                        class="thumbnail object-contain w-20 h-20 rounded-full shadow-lg">
+                        class="thumbnail object-contain w-20 h-20 rounded-full shadow-lg ">
                 </div>
             </div>
             <img src="assets/images/hero_shape_4_4.png" alt="leaf"
@@ -315,7 +315,7 @@
             //     opacity: 1,
             //     rotate: "0deg",
             // })
-            
+
             mainHeading.innerText = textArr[i]?.heading;
             colorText.innerText = textArr[i]?.colorWord;
             animateTextAgain();
