@@ -67,7 +67,7 @@
             transition: 0.3s ease-in-out;
         }
 
-        .thumbnail:nth-child(1) {
+        /* .thumbnail:nth-child(1) {
 
             transform: rotate(180deg) translate(50px) rotate(0deg);
         }
@@ -78,7 +78,7 @@
 
         .thumbnail:nth-child(3) {
             transform: rotate(180deg) translate(50px) rotate(0deg);
-        }
+        } */
 
 
 
@@ -258,6 +258,7 @@
         function changeCoffee(element, i) {
             const mainHeading = document.getElementById("main-text");
             const colorText = document.getElementById("colored-text");
+            const mainCoffee = document.getElementById("mainCoffee");
             const textArr = [{
                 heading: "Top Quality Tea and Coffee ",
                 colorWord: "Shop"
@@ -270,7 +271,7 @@
                 colorWord: "Shop",
 
             }];
-            const mainCoffee = document.getElementById("mainCoffee");
+
             const rect = element.getBoundingClientRect();
             const mainRect = mainCoffee.getBoundingClientRect();
             // Clone the clicked thumbnail
@@ -314,6 +315,7 @@
             //     opacity: 1,
             //     rotate: "0deg",
             // })
+
             mainHeading.innerText = textArr[i]?.heading;
             colorText.innerText = textArr[i]?.colorWord;
             animateTextAgain();
