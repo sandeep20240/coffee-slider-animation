@@ -320,15 +320,20 @@
 
             // Animate to main cup position
 
-            // clone.style.top = mainRect.top + "px"
-            Object.assign(clone.style, {
-                top: mainRect.top + "px",
-                left: mainRect.left + "px",
-                width: mainRect.width + "px",
-                height: mainRect.height + "px",
-                opacity: 1,
-                rotate: "0deg",
-            })
+            clone.style.top = mainRect.top + "px";
+            clone.style.left = mainRect.left + "px";
+            clone.style.width = mainRect.width + "px";
+            clone.style.height = mainRect.height + "px";
+            clone.style.opacity = 1;
+            clone.style.rotate = "0deg";
+            // Object.assign(clone.style, {
+            //     top: mainRect.top + "px",
+            //     left: mainRect.left + "px",
+            //     width: mainRect.width + "px",
+            //     height: mainRect.height + "px",
+            //     opacity: 1,
+            //     rotate: "0deg",
+            // })
 
 
 
