@@ -23,12 +23,12 @@
         }
 
         .coffee-img {
-            transition: all 0.6s ease-in-out;
+            /* transition: all 0.6s ease-in-out; */
         }
 
         .thumbnail {
             cursor: pointer;
-            transition: transform 0.3s ease-in-out;
+            /* transition: transform 0.3s ease-in-out; */
         }
 
         .thumbnail:hover {
@@ -38,11 +38,11 @@
         .animate-move {
             position: absolute;
             z-index: 50;
-            transition: all 0.8s ease-in-out;
+            /* transition: all 0.8s ease-in-out; */
         }
 
         .scale {
-            transition: transform 0.5s ease-in-out, opacity 0.5 ease-in-out;
+            /* transition: transform 0.5s ease-in-out, opacity 0.5 ease-in-out; */
             transform: scale(1);
             opacity: 1;
         }
@@ -51,7 +51,7 @@
         #bottomLeafs,
         #coffeeImage {
 
-            transition: transform 0.2s ease-out;
+            /* transition: transform 0.2s ease-out; */
             /* smooth gliding */
         }
 
@@ -64,7 +64,7 @@
             position: absolute;
 
             z-index: 50;
-            transition: 0.3s ease-in-out;
+            /* transition: 0.3s ease-in-out; */
         }
 
         .thumbnail:nth-child(1) {
@@ -191,10 +191,8 @@
 <body class="overflow-x-hidden">
     <section
         class="bg-[url('./assets/images/hero_bg_4_1.jpg')] bg-cover flex justify-center items-center h-screen  w-full relative">
-
         <!-- Heading -->
         <div class="flex items-center justify-center mx-auto px-5 sm:px-8 relative z-30 h-full gap-8 ">
-
             <div class="w-[50%] 2xl:ps-60 py-10 overflow-y-hidden" id="left_content">
                 <div class="sub_heading flex items-center gap-4">
                     <img src="assets/images/hero_shape_4_2.png" alt="" class="w-5 h-5">
@@ -215,19 +213,14 @@
                 <!-- Main Coffee Cup -->
                 <div
                     class="relative bg-[url('/assets/images/hero_shape_4_5.png')] bg-contain bg-no-repeat p-3 md:p-8 lg:p-14 flex items-center justify-center bg-center ">
-
-
                     <img src="assets/images/hero_shape_4_1.png" alt="shape " id="leafImage"
                         class="absolute -top-5 max-w-[70px] sm:max-w-[100px] lg:max-w-[192.75px] w-full ease-in-out duration-800  -start-5">
                     <img id="mainCoffee" src="assets/images/hero_img_4_1.png"
                         class="coffee-img w-full 2xl:max-w-[500px] 2xl:h-[500px] h-full object-contain rounded-full shadow-xl relative z-[5] ">
                 </div>
-
                 <!-- Coffee Thumbnails -->
                 <div class=" flex flex-col sm:gap-10 z-20 
                  ">
-
-
                     <img src="assets/images/hero_img_4_1.png"
                         class="thumbnail object-contain w-20 h-20 rounded-full shadow-lg">
 
@@ -242,18 +235,11 @@
             <img src="assets/images/hero_shape_4_3.png" alt="leaf"
                 class="absolute bottom-0 right-0 max-w-[1197px] z-10 max-h-[295px] w-full" id="coffeeImage">
         </div>
-
-
     </section>
 
-
-
-
     <script>
-
         document.addEventListener("DOMContentLoaded", () => {
             const allThumbnails = document.querySelectorAll(".thumbnail");
-
             allThumbnails.forEach((thumbnail, i) => {
                 thumbnail.addEventListener("click", function () {
                     changeCoffee(thumbnail, i)
@@ -261,7 +247,6 @@
                 )
             })
         })
-
         function animateTextAgain() {
             const elements = document.querySelectorAll(".main_heading, .sub_heading, .button");
             elements.forEach(el => {
@@ -270,12 +255,9 @@
                 el.style.animation = "";     // reapply original CSS animation
             });
         }
-
         function changeCoffee(element, i) {
-
             const mainHeading = document.getElementById("main-text");
             const colorText = document.getElementById("colored-text");
-
             const textArr = [{
                 heading: "Top Quality Tea and Coffee ",
                 colorWord: "Shop"
@@ -283,21 +265,14 @@
             {
                 heading: "Best Quality Tea and Coffee ",
                 colorWord: "Menu",
-
             }, {
                 heading: "Best Art Coffee In Your City",
                 colorWord: "Shop",
 
             }];
-
-
-
-
             const mainCoffee = document.getElementById("mainCoffee");
-
             const rect = element.getBoundingClientRect();
             const mainRect = mainCoffee.getBoundingClientRect();
-
             // Clone the clicked thumbnail
             const clone = element.cloneNode(true);
             clone.classList.add("animate-move");
@@ -318,12 +293,9 @@
             clone.style.width = rect.width + "px";
             clone.style.height = rect.height + "px";
             clone.style.opacity = 0;
-
             // Force browser to recognize initial position
             clone.getBoundingClientRect();
-
             // Animate to main cup position
-
             clone.style.top = mainRect.top + "px";
             clone.style.left = mainRect.left + "px";
             clone.style.width = mainRect.width + "px";
@@ -338,18 +310,12 @@
             //     opacity: 1,
             //     rotate: "0deg",
             // })
-
-
-
-
             mainHeading.innerText = textArr[i]?.heading;
             colorText.innerText = textArr[i]?.colorWord;
             animateTextAgain();
-
             // After animation ends
             setTimeout(() => {
                 mainCoffee.src = element.src;
-
                 clone.remove();
             }, 800);
         }
@@ -383,9 +349,5 @@
 
 
     </script>
-
-
-
 </body>
-
 </html>
