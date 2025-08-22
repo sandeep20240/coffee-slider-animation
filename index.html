@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee Animation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            list-style-type: none;
+            text-decoration: none;
+
+        }
+
+        .ff_lobster_two {
+            font-family: "Lobster Two", sans-serif;
+        }
+
+        .coffee-img {
+            transition: all 0.6s ease-in-out;
+        }
+
+        .thumbnail {
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .thumbnail:hover {
+            transform: scale(1.1);
+        }
+
+        .animate-move {
+            position: absolute;
+            z-index: 50;
+            transition: all 0.8s ease-in-out;
+        }
+
+        .scale {
+            transition: transform 0.5s ease-in-out, opacity 0.5 ease-in-out;
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        #leafImage,
+        #bottomLeafs,
+        #coffeeImage {
+
+            transition: transform 0.2s ease-out;
+            /* smooth gliding */
+        }
+
+        .scale-out {
+            transform: scale(0.5);
+            opacity: 0;
+        }
+
+        .move-coffe {
+            position: absolute;
+
+            z-index: 50;
+            transition: 0.3s ease-in-out;
+        }
+
+        .thumbnail:nth-child(1) {
+
+            transform: rotate(180deg) translate(50px) rotate(0deg);
+        }
+
+        .thumbnail:nth-child(2) {
+            transform: rotate(0deg) translate(0px) rotate(10deg);
+        }
+
+        .thumbnail:nth-child(3) {
+            transform: rotate(180deg) translate(50px) rotate(0deg);
+        }
+
+
+
+        @keyframes slide-in-bounce {
+            0% {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+
+            60% {
+                transform: translateY(10%);
+                /* overshoot downward */
+                opacity: 1;
+            }
+
+            80% {
+                transform: translateY(-10%);
+                /* small bounce upward */
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        .main_heading,
+        .sub_heading,
+        .button {
+            animation: slide-in-bounce 1s ease-in-out forwards;
+        }
+
+        /* Optional: staggered delays for smoother appearance */
+        .main_heading {
+            animation-duration: 2s;
+
+        }
+
+        .sub_heading {
+            animation-duration: 2s;
+
+        }
+
+        .button {
+            position: relative;
+            z-index: 20;
+            animation-duration: 2s;
+        }
+
+        /* .thumbnail {
+            position: relative;
+        }
+
+        .thumbnail::before {
+            position: absolute;
+            top: -75px;
+            left: -130px;
+            width: 20px;
+            height: 20px;
+            border: 5px solid rgba(255, 150, 150, 0.589);
+            background-color: white;
+            border-radius: 50px;
+            content: "";
+        } */
+
+        @keyframes slide-out {
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(-100%);
+            }
+        }
+
+
+        @media (min-width:767.98px) {
+
+            .thumbnail:nth-child(1) {
+
+                transform: rotate(0deg) translate(-30px) rotate(0deg);
+            }
+
+            .thumbnail:nth-child(2) {
+                transform: rotate(0deg) translate(0px) rotate(10deg);
+            }
+
+            .thumbnail:nth-child(3) {
+                transform: rotate(180deg) translate(30px) rotate(0deg);
+            }
+        }
+
+        @media (min-width:1025px) {
+
+            .thumbnail:nth-child(1) {
+
+                transform: rotate(60deg) translate(-180px) rotate(0deg);
+            }
+
+            .thumbnail:nth-child(2) {
+                transform: rotate(0deg) translate(0px) rotate(10deg);
+            }
+
+            .thumbnail:nth-child(3) {
+                transform: rotate(120deg) translate(180px) rotate(0deg);
+            }
+        }
+    </style>
+</head>
+
+<body class="overflow-x-hidden">
+    <section
+        class="bg-[url('./assets/images/hero_bg_4_1.jpg')] bg-cover flex justify-center items-center h-screen  w-full relative">
+
+        <!-- Heading -->
+        <div class="flex items-center justify-center mx-auto px-5 sm:px-8 relative z-30 h-full gap-8 ">
+
+            <div class="w-[50%] 2xl:ps-60 py-10 overflow-y-hidden" id="left_content">
+                <div class="sub_heading flex items-center gap-4">
+                    <img src="assets/images/hero_shape_4_2.png" alt="" class="w-5 h-5">
+                    <h5 class="text-white text-[10px] md:text-[15px]">Tea And Coffee Time Now</h5>
+                </div>
+                <h1 class="main_heading text-white text-[24px] md:text-[48px] lg:text-[75px] font-normal mb-6 ff_lobster_two italic leading-[120%]"
+                    id="main_heading">
+                    <span id="main-text">Top Quality Tea and
+                        Coffee</span>
+                    <span id="colored-text" class="text-red-500">Shop</span>
+                </h1>
+                <button
+                    class="text-white bg-[#77524A]   rounded-full px-4 md:px-8 py-2 md:py-3 hover:bg-[#010F1C] text-[10px] md:text-[12px] font-bold duration-300 ease-in-out button">
+                    ORDER NOW
+                </button>
+            </div>
+            <div class="flex items-center gap-2 md:gap-5 w-[50%] ">
+                <!-- Main Coffee Cup -->
+                <div
+                    class="relative bg-[url('/assets/images/hero_shape_4_5.png')] bg-contain bg-no-repeat p-3 md:p-8 lg:p-14 flex items-center justify-center bg-center ">
+
+
+                    <img src="assets/images/hero_shape_4_1.png" alt="shape " id="leafImage"
+                        class="absolute -top-5 max-w-[70px] sm:max-w-[100px] lg:max-w-[192.75px] w-full ease-in-out duration-800  -start-5">
+                    <img id="mainCoffee" src="assets/images/hero_img_4_1.png"
+                        class="coffee-img w-full 2xl:max-w-[500px] 2xl:h-[500px] h-full object-contain rounded-full shadow-xl relative z-[5] ">
+                </div>
+
+                <!-- Coffee Thumbnails -->
+                <div class=" flex flex-col sm:gap-10 z-20 
+                 ">
+
+
+                    <img src="assets/images/hero_img_4_1.png"
+                        class="thumbnail object-contain w-20 h-20 rounded-full shadow-lg">
+
+                    <img src="assets/images/hero_img_4_2.png"
+                        class="thumbnail object-contain w-20 h-20 rounded-full shadow-lg">
+                    <img src="assets/images/hero_img_4_3.png"
+                        class="thumbnail object-contain w-20 h-20 rounded-full shadow-lg">
+                </div>
+            </div>
+            <img src="assets/images/hero_shape_4_4.png" alt="leaf"
+                class="absolute bottom-0  z-[1] lg:max-w-[792px] left-0 lg:left-32 w-full" id="bottomLeafs">
+            <img src="assets/images/hero_shape_4_3.png" alt="leaf"
+                class="absolute bottom-0 right-0 max-w-[1197px] z-10 max-h-[295px] w-full" id="coffeeImage">
+        </div>
+
+
+    </section>
+
+
+
+
+    <script>
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const allThumbnails = document.querySelectorAll(".thumbnail");
+
+            allThumbnails.forEach((thumbnail, i) => {
+                thumbnail.addEventListener("click", function () {
+                    changeCoffee(thumbnail, i)
+                }
+                )
+            })
+        })
+
+        function animateTextAgain() {
+            const elements = document.querySelectorAll(".main_heading, .sub_heading, .button");
+            elements.forEach(el => {
+                el.style.animation = "none"; // reset animation
+                el.offsetHeight;             // force reflow (important!)
+                el.style.animation = "";     // reapply original CSS animation
+            });
+        }
+
+        function changeCoffee(element, i) {
+
+            const mainHeading = document.getElementById("main-text");
+            const colorText = document.getElementById("colored-text");
+
+            const textArr = [{
+                heading: "Top Quality Tea and Coffee ",
+                colorWord: "Shop"
+            },
+            {
+                heading: "Best Quality Tea and Coffee ",
+                colorWord: "Menu",
+
+            }, {
+                heading: "Best Art Coffee In Your City",
+                colorWord: "Shop",
+
+            }];
+
+
+
+
+            const mainCoffee = document.getElementById("mainCoffee");
+
+            const rect = element.getBoundingClientRect();
+            const mainRect = mainCoffee.getBoundingClientRect();
+
+            // Clone the clicked thumbnail
+            const clone = element.cloneNode(true);
+            clone.classList.add("animate-move");
+            document.body.appendChild(clone);
+
+            // Set start position (thumbnail pos)
+            console.log(clone.style)
+            Object.assign(clone.style, {
+                top: rect.top + "px",
+                left: rect.left + "px",
+                width: rect.width + "px",
+                height: rect.height + "px",
+                opacity: 0,
+                rotate: "90deg"
+            })
+
+
+            // Force browser to recognize initial position
+            clone.getBoundingClientRect();
+
+            // Animate to main cup position
+
+            // clone.style.top = mainRect.top + "px"
+            Object.assign(clone.style, {
+                top: mainRect.top + "px",
+                left: mainRect.left + "px",
+                width: mainRect.width + "px",
+                height: mainRect.height + "px",
+                opacity: 1,
+                rotate: "0deg",
+            })
+
+
+
+
+            mainHeading.innerText = textArr[i]?.heading;
+            colorText.innerText = textArr[i]?.colorWord;
+            animateTextAgain();
+
+            // After animation ends
+            setTimeout(() => {
+                mainCoffee.src = element.src;
+
+                clone.remove();
+            }, 800);
+        }
+
+
+
+
+        document.addEventListener("mousemove", function (e) {
+            const leafImage = document.getElementById("leafImage");
+            const coffeeImage = document.getElementById("coffeeImage");
+            const bottomLeafs = document.getElementById("bottomLeafs");
+
+            const x = e.clientX;
+            const y = e.clientY;
+
+            const screenWidth = window.innerWidth;
+            const screenHeight = window.innerHeight;
+
+            // Calculate relative mouse position (-1 to 1 range)
+            const moveX = (x / screenWidth - 0.5) * 20;  // max 20px shift
+            const moveY = (y / screenHeight - 0.5) * 20; // max 20px shift
+
+
+            // Move leaf in opposite direction (parallax)
+            leafImage.style.transform = `translate(${moveX}px, ${moveY}px)`;
+
+            // Coffee moves slightly opposite for effect
+            coffeeImage.style.transform = `translate(${-moveX / 2}px, 0px)`;
+            bottomLeafs.style.transform = `translate(${-moveX / 2}px, 0px)`;
+        });
+
+
+    </script>
+
+
+
+</body>
+
+</html>
